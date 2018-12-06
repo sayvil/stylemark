@@ -59,9 +59,20 @@
 			<script src="{{this}}"></script>
 		{{/each}}
 		{{{options.examples.headHtml}}}
-</head>
+	</head>
 
 	{{{or options.examples.bodyTag "<body>"}}}
+
+	{{!-- {{if options.styleSwitcher}} --}}
+	<section class="docs-buttons">
+		Theme:
+		{{#each options.styleSwitcher}}
+				{{#each this}}
+					<button id="cssWestin" onclick="changeCSS('{{this}}');">{{@key}}</button>
+				{{/each}}
+		{{/each}}
+	</section>
+	{{!-- {{/if}} --}}
 
 		{{~#each example.blocks}}
 			{{~#if (compare language "==" "html")}}
