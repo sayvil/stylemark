@@ -63,7 +63,7 @@
 
 	{{{or options.examples.bodyTag "<body>"}}}
 
-	{{!-- {{if options.styleSwitcher}} --}}
+	{{if options.styleSwitcher}}
 	<section class="docs-buttons">
 		Apply Theme:
 		{{#each options.styleSwitcher}}
@@ -72,7 +72,7 @@
 				{{/each}}
 		{{/each}}
 	</section>
-	{{!-- {{/if}} --}}
+	{{/if}}
 
 		{{~#each example.blocks}}
 			{{~#if (compare language "==" "html")}}
