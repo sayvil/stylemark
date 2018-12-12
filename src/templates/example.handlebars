@@ -1,5 +1,5 @@
 {{{or options.examples.doctypeTag "<!doctype html>"}}}
-{{{or options.examples.htmlTag "<html>"}}}
+{{{or options.examples.htmlTag "<html  dir=ltr>"}}}
 
 	<head>
 		<style>
@@ -65,12 +65,16 @@
 
 	{{#if options.styleSwitcher}}
 	<section class="docs-buttons">
-		Apply Theme:
+		<div>Apply Theme:
 		{{#each options.styleSwitcher}}
 				{{#each this}}
 					<button onclick="changeCSS('{{this}}');">{{@key}}</button>
 				{{/each}}
-		{{/each}}
+		{{/each}}</div>
+		<div>Apply Direction:
+					<button onclick="changeHTML('ltr');">LTR</button>
+					<button onclick="changeHTML('rtl');">RTL</button>
+		</div>
 	</section>
 	{{/if}}
 
@@ -234,5 +238,19 @@
 		</script>
 
 		<script src="_stylemark/js/vendor/iframeResizer.contentWindow.min.js"></script>
+
+		{{#if options.styleSwitcher}}
+		<script>
+			function changeCSS(cssFile) {
+			    var newlink = document.querySelector("#brandCSS");
+			    newlink.setAttribute("href", "/assets/theme/" + cssFile);
+			}
+
+			function changeHTML(newDirection) {
+			    var htmlTag = document.querySelector("html");
+			    htmlTag.setAttribute("dir", newDirection);
+			}
+		</script>
+		{{/if}}
 	</body>
 </html>
